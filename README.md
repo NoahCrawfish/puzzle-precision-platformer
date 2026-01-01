@@ -1,21 +1,34 @@
-# Precision Platformer Prototype
+# Puzzle-Precision Platformer Prototype
 
-A demo level for a puzzle-precision platformer. The core mechanic is that you control two different characters who can only touch their own color of blocks.
-However, by moving off a block you change it's color, so the two characters must work together to clear the level.
+A **Unity (C#)** prototype for a precision platformer with puzzle mechanics. You control two characters simultaneously, one red and one blue. Each character can only interact with blocks of their own color, but stepping on a block toggles its color, forcing coordinated movement to clear each level.
 
-Demo video:
+All physics was implimented manually, rather than using Unity's built-in physics engine. This allowed for more granular control of the player's movement.
+
+## Implementation Details
+
+- Player Movement & Physics
+  - Snappy turnarounds on the ground
+  - A stronger "falling gravity" for short-hop support
+  - Jump force derived from kinematic equations using target jump height + airtime
+  - Velocity Verlet integration for stable movement
+  - Coyote time
+  - Input buffering
+  - Wall sticking & wall jumping
+
+- Custom Collision System
+  - Pixel-perfect collision resolution
+  - Corner correction to avoid catching edges
+  - Helper utilities:
+    - Get adjacent tile types
+    - Measure distance to a tile type
+
+## Demo
 
 https://user-images.githubusercontent.com/82133480/156235180-b01d4b80-6a6a-427b-9157-7afa55b63764.mov
 
-The physics and collisions were implimented from scratch for more granular control. This allowed for the addition of platforming mechanics that would have been inconvenient otherwise, such as:
-- Quick turnarounds (found in PlayerMovement.UpdateXVelocity)
-- Short hopping (found in PlayerMovement.UpdateYVelocity)
-- Pixel-perfect collision snapping (found in PlayerCollision.HorzNudge and PlayerCollision.VertNudge)
+A playable build of the level is included.
 
-All player movement code is included. These scripts act as a foundation for any 2D platformer's movement. They include features like wall climbing that weren't included in the demo level. Other supplimental scripts such as the particle and tile managers are not included since they're highly dependent on Unity's editor settings and local assets.
+## Controls
 
-A build of the level is included.
-
-Controls:
-- Red Character: WASD
-- Blue Character: Arrow Keys
+- **Red Character:** `WASD`  
+- **Blue Character:** Arrow Keys
