@@ -22,7 +22,7 @@ All physics was implimented manually, rather than using Unity's built-in physics
     - Get adjacent tile types
     - Measure distance to a tile type
 
-## Demo
+## Demo Video
 
 https://user-images.githubusercontent.com/82133480/156235180-b01d4b80-6a6a-427b-9157-7afa55b63764.mov
 
